@@ -3,16 +3,45 @@
 <head>
   <title>Blog</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
+	<div id="sidebar">
+		
+		<ul><li class="name"><%=link_to "Paul Zhang", root_path %></li>
+		<li class="category">My Website</li>
+		<li><%= link_to "Blog", root_path %></li>
+		<li>About</li>
+		</ul>
 
-<%= link_to "Home", root_path %>
-<%= link_to "New Post", new_post_path %>
+		<ul>
+			<li class="category">Contact</li>
+			<li><a href="https://www.linkedin.com/in/jlpaulzhang">LinkedIn</a></li>
+			<li><a href="https://github.com/LaRenegaws">Github</a></li>
+			<li><a href="mailto:paul01134@hotmail.com">Email</a></li>
+		</ul>
 
+		<p class="sign_in">Login</p>
+	</div>
 
-<%= yield %>
+	<div id= "main_content">
+		<div id="header">
+			<p>Paul Zhang Blog</p>
+
+		<div class="buttons">
+			<button class="button">
+				<%=link_to "New Post", new_post_path %>
+			</button>
+			<button class="button">Log Out</button>
+		</div>
+		</div>
+
+	<% flash.each {|name, msg| content_tag:div, msg, class:'alert'}%>
+	<%= yield %>
+	</div>
 
 </body>
 </html>
