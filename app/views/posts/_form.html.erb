@@ -1,4 +1,15 @@
-<%= form_for @post do |f| %><%#referenc model%>
+<%#references model%>
+<%= form_for @post do |f| %>
+
+	<!-- Show error messages if Post not saved -->
+	<% if @post.errors.any? %>
+		<%= @post.errors.count %> error(s) occurred
+		<% @post.errors.full_messages.each do |msg| %>
+			<ul><%= msg %></ul>
+		<% end %>
+		<br>
+	<% end %>
+
 	<%= f.label :title %><br>
 	<%= f.text_field :title %><br>
 	<br>
