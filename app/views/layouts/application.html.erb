@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blog</title>
+  <title>Paul Zhang</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 
 <body>
-	<div id="sidebar">
+	<!-- <div id="sidebar">
 		
-		<ul><li class="name"><%=link_to "Paul Zhang", root_path %></li>
+		<ul><li class="name"><%#link_to "Paul Zhang", root_path %></li>
 		<li class="category">My Website</li>
-		<li><%= link_to "Blog", root_path %></li>
-		<li>About</li>
+		<li><%# link_to "Blog", root_path %></li>
+		<li><%# link_to "About Me", about_path %></li>
 		</ul>
 
 		<ul>
@@ -25,23 +26,43 @@
 		</ul>
 
 		<p class="sign_in">Login</p>
-	</div>
+	</div> -->
 
-	<div id= "main_content">
-		<div id="header">
-			<p>Paul Zhang Blog</p>
-
+	<div id="header">
+		<div class="name">Paul Zhang</div>
 		<div class="buttons">
+			<button class="button">
+				<%=link_to "My Blog", root_path %>
+			</button>
+			<button class ="button">
+			<%=link_to "About", about_path %>
+			</button>
 			<button class="button">
 				<%=link_to "New Post", new_post_path %>
 			</button>
+			<button class ="button">
+			Login
+			</button>
 			<button class="button">Log Out</button>
 		</div>
-		</div>
+	</div>
+
+	<div id= "main_content">
 
 	<% flash.each {|name, msg| content_tag:div, msg, class:'alert'}%>
+
 	<%= yield %>
 	</div>
+
+	<footer id="footer">
+		<p class="copyright">&copy;2016 Paul Zhang</p>
+		<nav>
+			Contact
+			<a href="https://www.linkedin.com/in/jlpaulzhang"><i class="fa fa-linkedin"></i></a>
+			<a href="https://github.com/LaRenegaws"><i class="fa fa-github"></i></a>
+			<a href="mailto:paul01134@hotmail.com"><i class="fa fa-envelope"></i></a>
+		</nav>
+	</footer>
 
 </body>
 </html>
