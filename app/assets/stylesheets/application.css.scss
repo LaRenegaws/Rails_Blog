@@ -152,7 +152,7 @@ a {
     }
   }
   #page_wrapper {
-    padding: 3em;
+    padding: 1em 3em;
     #profile_image {
       width: 300px;
       float: left;
@@ -175,6 +175,9 @@ a {
         font-weight: 700;
         text-decoration: none;
       }
+    }
+    .disqus {
+      padding-top: 3em;
     }
   }
   .links {
@@ -206,8 +209,5 @@ a {
       border: 1px solid #33acb7;
       color: #33acb7;
     }
-  }
-  .disqus {
-    padding: 3em;
   }
 }
