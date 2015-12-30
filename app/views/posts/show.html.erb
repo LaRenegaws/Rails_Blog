@@ -1,4 +1,4 @@
-<div id="post_content">	
+<div id="page_wrapper">	
 	<h1 class="title">
 		<%= @post.title %>
 	</h1>
@@ -18,6 +18,10 @@
 		<button class="button">
 			<%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?"} %>
 		</button>
+	</div>
+	
+	<div class = "disqus">
+		<%= render 'disqus' %>
 	</div>
 
 </div>
