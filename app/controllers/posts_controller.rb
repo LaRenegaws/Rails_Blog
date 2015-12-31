@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 	before_action :find_post, only: [:show, :edit, :update, :destroy]
+  #Need to be logged in to access other links
+  before_action :require_user, except: [:index, :show]
 
   def index
   	@posts = Post.all.order("created_at DESC").paginate(:page => params[:page], :per_page =>4) #orders posts by descending order
@@ -18,24 +20,24 @@ class PostsController < ApplicationController
   	end
   end
 
-  def show
-  end
+    def show
+    end
 
-  def edit
-  end
+    def edit
+    end
 
-  def update
-  	if @post.update(post_params)
-  		redirect_to @post
-  	else
-  		render 'edit'
-  	end
-  end
+    def update
+    	if @post.update(post_params)
+    		redirect_to @post
+    	else
+    		render 'edit'
+    	end
+    end
 
-  def destroy
-  	@post.destroy
-  	redirect_to root_path
-  end
+    def destroy
+    	@post.destroy
+    	redirect_to root_path
+    end
 
   private
 
