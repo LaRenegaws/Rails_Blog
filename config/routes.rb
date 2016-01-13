@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   end
   root 'posts#index'
   get '/about' => 'pages#about'
-  #get '*path' => redirect('/') #undefined routes point to home
-  get '/signup' => 'users#new'
+  get '/projects' => 'pages#projects'
+
+  #route to create new users. Disabled so it's only one user
+  #get '/signup' => 'users#new'
   resources :users
 
   get '/login' => 'sessions#new'
@@ -13,6 +15,9 @@ Rails.application.routes.draw do
   #maps /login to Sessions controller create
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
+
+  #undefined routes point to home
+  get '*path' => redirect('/')
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
