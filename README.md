@@ -1,6 +1,6 @@
 # Rails_Blog
 
-http://paulzhang.me
+http://paulzhangblog.herokuapp.com/
 
 Built personal blog/website using Rails <br />
 Implemented Admin console to manage posts <br />
